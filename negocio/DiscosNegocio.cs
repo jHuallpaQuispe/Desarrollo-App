@@ -14,7 +14,7 @@ namespace negocio
             AcessoDatos dato = new AcessoDatos();
             try
             {
-                dato.setearConsulta("Select Titulo, FechaLanzamiento, CantidadCanciones, UrlImagenTapa From Discos");
+                dato.setearConsulta("Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, E.Descripcion Estilo, T.Descripcion Edicion From Discos D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id");
                 dato.ejecutarLectura();
 
                 while (dato.Lector.Read())
@@ -25,6 +25,10 @@ namespace negocio
                     aux.FechaLanzamiento = (DateTime)dato.Lector["FechaLanzamiento"];
                     aux.CantidadCanciones = (int)dato.Lector["CantidadCanciones"];
                     aux.UrlImagen = (string)dato.Lector["UrlImagenTapa"];
+
+                    aux.Estilo = (string)dato.Lector["Estilo"];
+
+                    aux.Edicion = (string)dato.Lector["Edicion"];
 
                     lista.Add(aux);
                 }

@@ -38,29 +38,31 @@
             // dgvDiscos
             // 
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDiscos.Location = new System.Drawing.Point(40, 53);
-            this.dgvDiscos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDiscos.Location = new System.Drawing.Point(53, 64);
+            this.dgvDiscos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDiscos.Name = "dgvDiscos";
             this.dgvDiscos.RowHeadersWidth = 51;
             this.dgvDiscos.RowTemplate.Height = 24;
-            this.dgvDiscos.Size = new System.Drawing.Size(674, 285);
+            this.dgvDiscos.Size = new System.Drawing.Size(899, 351);
             this.dgvDiscos.TabIndex = 0;
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
             // 
             // pbImagenDiscco
             // 
-            this.pbImagenDiscco.Location = new System.Drawing.Point(779, 53);
+            this.pbImagenDiscco.Location = new System.Drawing.Point(1039, 65);
+            this.pbImagenDiscco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbImagenDiscco.Name = "pbImagenDiscco";
-            this.pbImagenDiscco.Size = new System.Drawing.Size(334, 284);
+            this.pbImagenDiscco.Size = new System.Drawing.Size(445, 350);
             this.pbImagenDiscco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagenDiscco.TabIndex = 1;
             this.pbImagenDiscco.TabStop = false;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(40, 343);
+            this.btnAgregar.Location = new System.Drawing.Point(53, 422);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(126, 26);
+            this.btnAgregar.Size = new System.Drawing.Size(168, 32);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -68,13 +70,13 @@
             // 
             // FrmDiscos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 405);
+            this.ClientSize = new System.Drawing.Size(1511, 498);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbImagenDiscco);
             this.Controls.Add(this.dgvDiscos);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmDiscos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Discos";
