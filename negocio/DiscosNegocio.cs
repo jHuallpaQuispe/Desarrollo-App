@@ -26,10 +26,11 @@ namespace negocio
                     aux.CantidadCanciones = (int)dato.Lector["CantidadCanciones"];
                     aux.UrlImagen = (string)dato.Lector["UrlImagenTapa"];
 
-                    aux.Estilo = (string)dato.Lector["Estilo"];
+                    aux.Estilo = new Estilo();
+                    aux.Estilo.Descripcion = (string)dato.Lector["Estilo"];
 
-                    aux.Edicion = (string)dato.Lector["Edicion"];
-
+                    aux.Edicion = new Edicion();
+                    aux.Edicion.Descripcion = (string)dato.Lector["Edicion"];
                     lista.Add(aux);
                 }
 
