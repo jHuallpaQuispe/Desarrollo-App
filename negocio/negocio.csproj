@@ -43,8 +43,9 @@
   <ItemGroup>
     <Compile Include="AcessoDatos.cs" />
     <Compile Include="DiscosNegocio.cs" />
+    <Compile Include="EdicionNegocio.cs" />
+    <Compile Include="EstiloNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dominio\dominio.csproj">
