@@ -24,7 +24,10 @@ namespace negocio
                     aux.Titulo = (string)dato.Lector["Titulo"];
                     aux.FechaLanzamiento = (DateTime)dato.Lector["FechaLanzamiento"];
                     aux.CantidadCanciones = (int)dato.Lector["CantidadCanciones"];
-                    aux.UrlImagen = (string)dato.Lector["UrlImagenTapa"];
+
+                    //Validacion de una cloumna null
+                    if (!(dato.Lector["UrlImagen"] is DBNull))
+                        aux.UrlImagen = (string)dato.Lector["UrlImagenTapa"];
 
                     aux.Estilo = new Estilo();
                     aux.Estilo.Descripcion = (string)dato.Lector["Estilo"];
@@ -55,7 +58,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento,CantidadCanciones,UrlImagenTapa, IdEstilo, IdTipoEdicion) values('" + nuevo.Titulo+"','"+nuevo.FechaLanzamiento+"',"+nuevo.CantidadCanciones+",'', @idEstilo, @idEdicion)");
+                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento,CantidadCanciones, IdEstilo, IdTipoEdicion) values('" + nuevo.Titulo+"','"+nuevo.FechaLanzamiento+"',"+nuevo.CantidadCanciones+", @idEstilo, @idEdicion)");
                 datos.seterarParametros("@idEstilo", nuevo.Estilo.Id);
                 datos.seterarParametros("@idEdicion", nuevo.Edicion.Id);
 

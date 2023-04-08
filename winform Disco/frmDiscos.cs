@@ -22,10 +22,18 @@ namespace winform_Disco
         private void FrmDiscos_Load(object sender, EventArgs e)
         {
             DiscosNegocio disco = new DiscosNegocio();
-            lista = disco.listar();
-            dgvDiscos.DataSource = lista;
-            dgvDiscos.Columns["UrlImagen"].Visible = false; 
-            cargarImagen(lista[0].UrlImagen);
+            try
+            {
+                lista = disco.listar();
+                dgvDiscos.DataSource = lista;
+                dgvDiscos.Columns["UrlImagen"].Visible = false;
+                cargarImagen(lista[0].UrlImagen);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
