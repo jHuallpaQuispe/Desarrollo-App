@@ -55,7 +55,10 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento,CantidadCanciones,UrlImagenTapa) values('" + nuevo.Titulo+"','"+nuevo.FechaLanzamiento+"',"+nuevo.CantidadCanciones+",'')");
+                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento,CantidadCanciones,UrlImagenTapa, IdEstilo, IdTipoEdicion) values('" + nuevo.Titulo+"','"+nuevo.FechaLanzamiento+"',"+nuevo.CantidadCanciones+",'', @idEstilo, @idEdicion)");
+                datos.seterarParametros("@idEstilo", nuevo.Estilo.Id);
+                datos.seterarParametros("@idEdicion", nuevo.Edicion.Id);
+
                 datos.ejecutarAccion();
 
             }
