@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,15 @@ namespace negocio
                     Disco aux = new Disco();
 
                     aux.Titulo = (string)dato.Lector["Titulo"];
-                    aux.FechaLanzamiento = (DateTime)dato.Lector["FechaLanzamiento"];
+
+                    DateTime Time = (DateTime)dato.Lector["FechaLanzamiento"];
+
+                    aux.FechaLanzamiento = Time.ToString("dd/MM/yyyy");
+
                     aux.CantidadCanciones = (int)dato.Lector["CantidadCanciones"];
 
-                    //Validacion de una cloumna null
-                    if (!(dato.Lector["UrlImagen"] is DBNull))
+                    //Validacion de una columna null
+                    if (!(dato.Lector["UrlImagenTapa"] is DBNull))
                         aux.UrlImagen = (string)dato.Lector["UrlImagenTapa"];
 
                     aux.Estilo = new Estilo();
@@ -38,11 +43,12 @@ namespace negocio
                 }
 
 
+
+
                 return lista;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -75,9 +81,5 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
-
-
-
-
     }
 }

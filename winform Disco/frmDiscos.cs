@@ -21,6 +21,12 @@ namespace winform_Disco
 
         private void FrmDiscos_Load(object sender, EventArgs e)
         {
+            cargar();
+
+        }
+
+        private void cargar()
+        {
             DiscosNegocio disco = new DiscosNegocio();
             try
             {
@@ -50,7 +56,7 @@ namespace winform_Disco
                 pbImagenDiscco.Load(Imagen);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 pbImagenDiscco.Load("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png");
@@ -63,6 +69,7 @@ namespace winform_Disco
             frmSubirDisco subir = new frmSubirDisco();
 
             subir.ShowDialog();
+            cargar();
         }
     }
 }

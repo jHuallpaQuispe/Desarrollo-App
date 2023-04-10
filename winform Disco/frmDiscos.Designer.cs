@@ -38,11 +38,14 @@
             // dgvDiscos
             // 
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDiscos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDiscos.Location = new System.Drawing.Point(53, 64);
             this.dgvDiscos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
             this.dgvDiscos.RowHeadersWidth = 51;
             this.dgvDiscos.RowTemplate.Height = 24;
+            this.dgvDiscos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDiscos.Size = new System.Drawing.Size(899, 351);
             this.dgvDiscos.TabIndex = 0;
             this.dgvDiscos.SelectionChanged += new System.EventHandler(this.dgvDiscos_SelectionChanged);
@@ -50,7 +53,7 @@
             // pbImagenDiscco
             // 
             this.pbImagenDiscco.Location = new System.Drawing.Point(1039, 65);
-            this.pbImagenDiscco.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbImagenDiscco.Margin = new System.Windows.Forms.Padding(4);
             this.pbImagenDiscco.Name = "pbImagenDiscco";
             this.pbImagenDiscco.Size = new System.Drawing.Size(445, 350);
             this.pbImagenDiscco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -60,7 +63,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(53, 422);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(168, 32);
             this.btnAgregar.TabIndex = 2;

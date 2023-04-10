@@ -26,7 +26,11 @@ namespace winform_Disco
             try
             {
                 disco.Titulo = txtbTitulo.Text;
-                disco.FechaLanzamiento = dtpFechaLanzamiento.Value;
+
+                DateTime aux = dtpFechaLanzamiento.Value;
+
+                disco.FechaLanzamiento = aux.ToString("dd/MM/yyyy");
+
                 disco.CantidadCanciones = int.Parse(txtbCantidadCanciones.Text);
                 disco.Estilo = (Estilo)cboEstilo.SelectedItem;
                 disco.Edicion = (Edicion)cboEdicion.SelectedItem;

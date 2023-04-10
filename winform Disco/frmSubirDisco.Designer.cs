@@ -112,11 +112,13 @@
             // 
             // dtpFechaLanzamiento
             // 
+            this.dtpFechaLanzamiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaLanzamiento.Location = new System.Drawing.Point(179, 53);
             this.dtpFechaLanzamiento.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaLanzamiento.Name = "dtpFechaLanzamiento";
             this.dtpFechaLanzamiento.Size = new System.Drawing.Size(276, 22);
             this.dtpFechaLanzamiento.TabIndex = 8;
+            this.dtpFechaLanzamiento.Value = new System.DateTime(2023, 4, 10, 0, 0, 0, 0);
             // 
             // lblEdicion
             // 
