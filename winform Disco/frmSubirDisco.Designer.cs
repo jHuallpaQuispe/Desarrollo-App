@@ -40,12 +40,16 @@
             this.cboEdicion = new System.Windows.Forms.ComboBox();
             this.lblEstilo = new System.Windows.Forms.Label();
             this.cboEstilo = new System.Windows.Forms.ComboBox();
+            this.lblUrlImagen = new System.Windows.Forms.Label();
+            this.txtUrlImagen = new System.Windows.Forms.TextBox();
+            this.pbxUrlImagen = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxUrlImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(130, 29);
+            this.lblTitulo.Location = new System.Drawing.Point(130, 35);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(43, 16);
@@ -55,7 +59,7 @@
             // lblCantidadCanciones
             // 
             this.lblCantidadCanciones.AutoSize = true;
-            this.lblCantidadCanciones.Location = new System.Drawing.Point(23, 89);
+            this.lblCantidadCanciones.Location = new System.Drawing.Point(23, 95);
             this.lblCantidadCanciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCantidadCanciones.Name = "lblCantidadCanciones";
             this.lblCantidadCanciones.Size = new System.Drawing.Size(150, 16);
@@ -65,7 +69,7 @@
             // lblFechaLanzamiento
             // 
             this.lblFechaLanzamiento.AutoSize = true;
-            this.lblFechaLanzamiento.Location = new System.Drawing.Point(31, 59);
+            this.lblFechaLanzamiento.Location = new System.Drawing.Point(31, 65);
             this.lblFechaLanzamiento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaLanzamiento.Name = "lblFechaLanzamiento";
             this.lblFechaLanzamiento.Size = new System.Drawing.Size(142, 16);
@@ -74,7 +78,7 @@
             // 
             // txtbTitulo
             // 
-            this.txtbTitulo.Location = new System.Drawing.Point(179, 23);
+            this.txtbTitulo.Location = new System.Drawing.Point(179, 29);
             this.txtbTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.txtbTitulo.Name = "txtbTitulo";
             this.txtbTitulo.Size = new System.Drawing.Size(276, 22);
@@ -82,7 +86,7 @@
             // 
             // txtbCantidadCanciones
             // 
-            this.txtbCantidadCanciones.Location = new System.Drawing.Point(179, 83);
+            this.txtbCantidadCanciones.Location = new System.Drawing.Point(179, 89);
             this.txtbCantidadCanciones.Margin = new System.Windows.Forms.Padding(4);
             this.txtbCantidadCanciones.Name = "txtbCantidadCanciones";
             this.txtbCantidadCanciones.Size = new System.Drawing.Size(276, 22);
@@ -90,7 +94,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(68, 187);
+            this.btnAgregar.Location = new System.Drawing.Point(92, 242);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(149, 43);
@@ -101,7 +105,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(307, 187);
+            this.btnCancelar.Location = new System.Drawing.Point(306, 242);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(149, 43);
@@ -112,8 +116,7 @@
             // 
             // dtpFechaLanzamiento
             // 
-            this.dtpFechaLanzamiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaLanzamiento.Location = new System.Drawing.Point(179, 53);
+            this.dtpFechaLanzamiento.Location = new System.Drawing.Point(179, 59);
             this.dtpFechaLanzamiento.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaLanzamiento.Name = "dtpFechaLanzamiento";
             this.dtpFechaLanzamiento.Size = new System.Drawing.Size(276, 22);
@@ -123,7 +126,7 @@
             // lblEdicion
             // 
             this.lblEdicion.AutoSize = true;
-            this.lblEdicion.Location = new System.Drawing.Point(118, 120);
+            this.lblEdicion.Location = new System.Drawing.Point(118, 154);
             this.lblEdicion.Name = "lblEdicion";
             this.lblEdicion.Size = new System.Drawing.Size(55, 16);
             this.lblEdicion.TabIndex = 9;
@@ -133,7 +136,7 @@
             // 
             this.cboEdicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEdicion.FormattingEnabled = true;
-            this.cboEdicion.Location = new System.Drawing.Point(179, 112);
+            this.cboEdicion.Location = new System.Drawing.Point(179, 146);
             this.cboEdicion.Name = "cboEdicion";
             this.cboEdicion.Size = new System.Drawing.Size(276, 24);
             this.cboEdicion.TabIndex = 10;
@@ -141,7 +144,7 @@
             // lblEstilo
             // 
             this.lblEstilo.AutoSize = true;
-            this.lblEstilo.Location = new System.Drawing.Point(130, 150);
+            this.lblEstilo.Location = new System.Drawing.Point(130, 184);
             this.lblEstilo.Name = "lblEstilo";
             this.lblEstilo.Size = new System.Drawing.Size(43, 16);
             this.lblEstilo.TabIndex = 11;
@@ -151,16 +154,45 @@
             // 
             this.cboEstilo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstilo.FormattingEnabled = true;
-            this.cboEstilo.Location = new System.Drawing.Point(179, 142);
+            this.cboEstilo.Location = new System.Drawing.Point(179, 176);
             this.cboEstilo.Name = "cboEstilo";
             this.cboEstilo.Size = new System.Drawing.Size(276, 24);
             this.cboEstilo.TabIndex = 12;
+            // 
+            // lblUrlImagen
+            // 
+            this.lblUrlImagen.AutoSize = true;
+            this.lblUrlImagen.Location = new System.Drawing.Point(98, 124);
+            this.lblUrlImagen.Name = "lblUrlImagen";
+            this.lblUrlImagen.Size = new System.Drawing.Size(75, 16);
+            this.lblUrlImagen.TabIndex = 13;
+            this.lblUrlImagen.Text = "Url Imagen:";
+            // 
+            // txtUrlImagen
+            // 
+            this.txtUrlImagen.Location = new System.Drawing.Point(181, 118);
+            this.txtUrlImagen.Name = "txtUrlImagen";
+            this.txtUrlImagen.Size = new System.Drawing.Size(274, 22);
+            this.txtUrlImagen.TabIndex = 14;
+            this.txtUrlImagen.Leave += new System.EventHandler(this.txtUrlImagen_Leave);
+            // 
+            // pbxUrlImagen
+            // 
+            this.pbxUrlImagen.Location = new System.Drawing.Point(511, 29);
+            this.pbxUrlImagen.Name = "pbxUrlImagen";
+            this.pbxUrlImagen.Size = new System.Drawing.Size(351, 256);
+            this.pbxUrlImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxUrlImagen.TabIndex = 15;
+            this.pbxUrlImagen.TabStop = false;
             // 
             // frmSubirDisco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 261);
+            this.ClientSize = new System.Drawing.Size(895, 316);
+            this.Controls.Add(this.pbxUrlImagen);
+            this.Controls.Add(this.txtUrlImagen);
+            this.Controls.Add(this.lblUrlImagen);
             this.Controls.Add(this.cboEstilo);
             this.Controls.Add(this.lblEstilo);
             this.Controls.Add(this.cboEdicion);
@@ -178,6 +210,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Subir Disco";
             this.Load += new System.EventHandler(this.frmSubirDisco_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxUrlImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +230,8 @@
         private System.Windows.Forms.ComboBox cboEdicion;
         private System.Windows.Forms.Label lblEstilo;
         private System.Windows.Forms.ComboBox cboEstilo;
+        private System.Windows.Forms.Label lblUrlImagen;
+        private System.Windows.Forms.TextBox txtUrlImagen;
+        private System.Windows.Forms.PictureBox pbxUrlImagen;
     }
 }

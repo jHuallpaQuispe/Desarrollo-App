@@ -15,7 +15,7 @@ namespace dominio
         public string Titulo { get; set; }
 
         [DisplayName("Fecha de Lanzamiento")]
-        public string FechaLanzamiento { get; set; }
+        public DateTime FechaLanzamiento { get; set; }
 
         [DisplayName("Cantidad de Canciones")]
         public int CantidadCanciones { get; set; }

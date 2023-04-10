@@ -24,9 +24,7 @@ namespace negocio
 
                     aux.Titulo = (string)dato.Lector["Titulo"];
 
-                    DateTime Time = (DateTime)dato.Lector["FechaLanzamiento"];
-
-                    aux.FechaLanzamiento = Time.ToString("dd/MM/yyyy");
+                    aux.FechaLanzamiento = (DateTime)dato.Lector["FechaLanzamiento"];
 
                     aux.CantidadCanciones = (int)dato.Lector["CantidadCanciones"];
 
@@ -64,9 +62,11 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento,CantidadCanciones, IdEstilo, IdTipoEdicion) values('" + nuevo.Titulo+"','"+nuevo.FechaLanzamiento+"',"+nuevo.CantidadCanciones+", @idEstilo, @idEdicion)");
+                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento,CantidadCanciones, IdEstilo, IdTipoEdicion,UrlImagenTapa) values('" + nuevo.Titulo+"',@fechaLanzamiento,"+nuevo.CantidadCanciones+", @idEstilo, @idEdicion,@urlImagen)");
+                datos.seterarParametros("@fechaLanzamiento", nuevo.FechaLanzamiento.ToString("dd/MM/yyy"));
                 datos.seterarParametros("@idEstilo", nuevo.Estilo.Id);
                 datos.seterarParametros("@idEdicion", nuevo.Edicion.Id);
+                datos.seterarParametros("@UrlImagen", nuevo.UrlImagen);
 
                 datos.ejecutarAccion();
 
