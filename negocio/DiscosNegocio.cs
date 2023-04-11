@@ -62,8 +62,8 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento,CantidadCanciones, IdEstilo, IdTipoEdicion,UrlImagenTapa) values('" + nuevo.Titulo+"',@fechaLanzamiento,"+nuevo.CantidadCanciones+", @idEstilo, @idEdicion,@urlImagen)");
-                datos.seterarParametros("@fechaLanzamiento", nuevo.FechaLanzamiento.ToString("dd/MM/yyy"));
+                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento, CantidadCanciones, IdEstilo, IdTipoEdicion, UrlImagenTapa) values('" + nuevo.Titulo+"',@fechaLanzamiento,"+nuevo.CantidadCanciones+", @idEstilo, @idEdicion,@urlImagen)");
+                datos.seterarParametros("@fechaLanzamiento", nuevo.FechaLanzamiento);
                 datos.seterarParametros("@idEstilo", nuevo.Estilo.Id);
                 datos.seterarParametros("@idEdicion", nuevo.Edicion.Id);
                 datos.seterarParametros("@UrlImagen", nuevo.UrlImagen);
