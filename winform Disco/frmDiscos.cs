@@ -33,6 +33,7 @@ namespace winform_Disco
                 lista = disco.listar();
                 dgvDiscos.DataSource = lista;
                 dgvDiscos.Columns["UrlImagen"].Visible = false;
+                dgvDiscos.Columns["Id"].Visible = false;
                 cargarImagen(lista[0].UrlImagen);
             }
             catch (Exception ex)
@@ -67,9 +68,18 @@ namespace winform_Disco
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmSubirDisco subir = new frmSubirDisco();
-
             subir.ShowDialog();
             cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Disco seleccionado;
+            seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+
+            frmSubirDisco subir = new frmSubirDisco(seleccionado);
+            subir.ShowDialog();
+            cargar(); // Para Actualizar el dgvDiscos
         }
     }
 }

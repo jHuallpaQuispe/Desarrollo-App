@@ -33,7 +33,7 @@
             this.lblFechaLanzamiento = new System.Windows.Forms.Label();
             this.txtbTitulo = new System.Windows.Forms.TextBox();
             this.txtbCantidadCanciones = new System.Windows.Forms.TextBox();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dtpFechaLanzamiento = new System.Windows.Forms.DateTimePicker();
             this.lblEdicion = new System.Windows.Forms.Label();
@@ -92,16 +92,16 @@
             this.txtbCantidadCanciones.Size = new System.Drawing.Size(276, 22);
             this.txtbCantidadCanciones.TabIndex = 5;
             // 
-            // btnAgregar
+            // btnAceptar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(92, 242);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(149, 43);
-            this.btnAgregar.TabIndex = 6;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAceptar.Location = new System.Drawing.Point(92, 242);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(149, 43);
+            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 
@@ -116,6 +116,7 @@
             // 
             // dtpFechaLanzamiento
             // 
+            this.dtpFechaLanzamiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaLanzamiento.Location = new System.Drawing.Point(179, 59);
             this.dtpFechaLanzamiento.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaLanzamiento.Name = "dtpFechaLanzamiento";
@@ -126,7 +127,7 @@
             // lblEdicion
             // 
             this.lblEdicion.AutoSize = true;
-            this.lblEdicion.Location = new System.Drawing.Point(118, 154);
+            this.lblEdicion.Location = new System.Drawing.Point(118, 184);
             this.lblEdicion.Name = "lblEdicion";
             this.lblEdicion.Size = new System.Drawing.Size(55, 16);
             this.lblEdicion.TabIndex = 9;
@@ -136,7 +137,7 @@
             // 
             this.cboEdicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEdicion.FormattingEnabled = true;
-            this.cboEdicion.Location = new System.Drawing.Point(179, 146);
+            this.cboEdicion.Location = new System.Drawing.Point(179, 176);
             this.cboEdicion.Name = "cboEdicion";
             this.cboEdicion.Size = new System.Drawing.Size(276, 24);
             this.cboEdicion.TabIndex = 10;
@@ -144,7 +145,7 @@
             // lblEstilo
             // 
             this.lblEstilo.AutoSize = true;
-            this.lblEstilo.Location = new System.Drawing.Point(130, 184);
+            this.lblEstilo.Location = new System.Drawing.Point(130, 154);
             this.lblEstilo.Name = "lblEstilo";
             this.lblEstilo.Size = new System.Drawing.Size(43, 16);
             this.lblEstilo.TabIndex = 11;
@@ -154,7 +155,7 @@
             // 
             this.cboEstilo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstilo.FormattingEnabled = true;
-            this.cboEstilo.Location = new System.Drawing.Point(179, 176);
+            this.cboEstilo.Location = new System.Drawing.Point(179, 146);
             this.cboEstilo.Name = "cboEstilo";
             this.cboEstilo.Size = new System.Drawing.Size(276, 24);
             this.cboEstilo.TabIndex = 12;
@@ -199,7 +200,7 @@
             this.Controls.Add(this.lblEdicion);
             this.Controls.Add(this.dtpFechaLanzamiento);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtbCantidadCanciones);
             this.Controls.Add(this.txtbTitulo);
             this.Controls.Add(this.lblFechaLanzamiento);
@@ -223,7 +224,7 @@
         private System.Windows.Forms.Label lblFechaLanzamiento;
         private System.Windows.Forms.TextBox txtbTitulo;
         private System.Windows.Forms.TextBox txtbCantidadCanciones;
-        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DateTimePicker dtpFechaLanzamiento;
         private System.Windows.Forms.Label lblEdicion;

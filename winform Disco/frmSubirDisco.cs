@@ -14,27 +14,45 @@ namespace winform_Disco
 {
     public partial class frmSubirDisco : Form
     {
+        private Disco disco = null;
         public frmSubirDisco()
         {
             InitializeComponent();
         }
+        public frmSubirDisco(Disco disco)
+        {
+            InitializeComponent();
+            this.disco = disco;
+            Text = "Modificar Disco";
+        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Disco disco= new Disco();
             DiscosNegocio negocio = new DiscosNegocio();
             try
             {
-                disco.Titulo = txtbTitulo.Text;
+                if(disco == null)
+                    disco = new Disco();
 
+                disco.Titulo = txtbTitulo.Text;
                 disco.FechaLanzamiento = dtpFechaLanzamiento.Value;
                 disco.UrlImagen = txtUrlImagen.Text;
                 disco.CantidadCanciones = int.Parse(txtbCantidadCanciones.Text);
                 disco.Estilo = (Estilo)cboEstilo.SelectedItem;
                 disco.Edicion = (Edicion)cboEdicion.SelectedItem;
 
-                negocio.agregar(disco);
-                MessageBox.Show("Agregado exitosamente");
+                if(disco.Id != 0)
+                {
+                    negocio.Modificar(disco);
+                    MessageBox.Show("Modificado exitosamente");
+
+                }
+                else
+                {
+                    negocio.agregar(disco);
+                    MessageBox.Show("Agregado exitosamente");
+
+                }
 
                 Close();
             }
@@ -56,7 +74,22 @@ namespace winform_Disco
             try
             {
                 cboEdicion.DataSource = edicionNegocio.listar();
+                cboEdicion.ValueMember = "Id";
+                cboEdicion.DisplayMember = "Descripcion";
                 cboEstilo.DataSource = estiloNegocio.listar();
+                cboEstilo.ValueMember = "Id";
+                cboEstilo.DisplayMember = "Descripcion";
+
+                if(disco != null)
+                {
+                    txtbTitulo.Text = disco.Titulo;
+                    dtpFechaLanzamiento.Value = disco.FechaLanzamiento;
+                    txtbCantidadCanciones.Text = disco.CantidadCanciones.ToString();
+                    txtUrlImagen.Text = disco.UrlImagen;
+                    cboEstilo.SelectedValue = disco.Estilo.Id;
+                    cboEdicion.SelectedValue = disco.Edicion.Id;
+                    cargarImagen(disco.UrlImagen);
+                }
 
             }
             catch (Exception ex)

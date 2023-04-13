@@ -15,13 +15,14 @@ namespace negocio
             AcessoDatos dato = new AcessoDatos();
             try
             {
-                dato.setearConsulta("Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, E.Descripcion Estilo, T.Descripcion Edicion From Discos D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id");
+                dato.setearConsulta("Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, E.Descripcion Estilo, T.Descripcion Edicion, D.IdEstilo , D.IdTipoEdicion, D.Id From Discos D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id");
                 dato.ejecutarLectura();
 
                 while (dato.Lector.Read())
                 {
                     Disco aux = new Disco();
 
+                    aux.Id = (int)dato.Lector["Id"];
                     aux.Titulo = (string)dato.Lector["Titulo"];
 
                     aux.FechaLanzamiento = (DateTime)dato.Lector["FechaLanzamiento"];
@@ -33,17 +34,17 @@ namespace negocio
                         aux.UrlImagen = (string)dato.Lector["UrlImagenTapa"];
 
                     aux.Estilo = new Estilo();
+                    aux.Estilo.Id = (int)dato.Lector["IdEstilo"];
                     aux.Estilo.Descripcion = (string)dato.Lector["Estilo"];
 
                     aux.Edicion = new Edicion();
+                    aux.Edicion.Id = (int)dato.Lector["IdTipoEdicion"];
                     aux.Edicion.Descripcion = (string)dato.Lector["Edicion"];
                     lista.Add(aux);
                 }
 
-
-
-
                 return lista;
+
             }
             catch (Exception ex)
             {
@@ -67,6 +68,34 @@ namespace negocio
                 datos.seterarParametros("@idEstilo", nuevo.Estilo.Id);
                 datos.seterarParametros("@idEdicion", nuevo.Edicion.Id);
                 datos.seterarParametros("@UrlImagen", nuevo.UrlImagen);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void Modificar(Disco disc)
+        {
+            AcessoDatos datos = new AcessoDatos();
+            try
+            {
+                datos.setearConsulta("update DISCOS set Titulo = @titulo, FechaLanzamiento = @fechaLan, CantidadCanciones = @cantCanciones, UrlImagenTapa = @urlImg, IdEstilo = @idEstilo, IdTipoEdicion = @idEdicion where Id = @id");
+                datos.seterarParametros("@titulo",disc.Titulo );
+                datos.seterarParametros("@fechaLan", disc.FechaLanzamiento);
+                datos.seterarParametros("@cantCanciones", disc.CantidadCanciones);
+                datos.seterarParametros("@urlImg", disc.UrlImagen);
+                datos.seterarParametros("@idEstilo", disc.Estilo.Id);
+                datos.seterarParametros("@idEdicion", disc.Edicion.Id);
+                datos.seterarParametros("@id", disc.Id);
 
                 datos.ejecutarAccion();
 
