@@ -32,6 +32,7 @@
             this.pbImagenDiscco = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminarFisico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenDiscco)).BeginInit();
             this.SuspendLayout();
@@ -40,6 +41,7 @@
             // 
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiscos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvDiscos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.dgvDiscos.Location = new System.Drawing.Point(22, 21);
             this.dgvDiscos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDiscos.MultiSelect = false;
@@ -53,6 +55,7 @@
             // 
             // pbImagenDiscco
             // 
+            this.pbImagenDiscco.BackColor = System.Drawing.SystemColors.Control;
             this.pbImagenDiscco.Location = new System.Drawing.Point(969, 21);
             this.pbImagenDiscco.Margin = new System.Windows.Forms.Padding(4);
             this.pbImagenDiscco.Name = "pbImagenDiscco";
@@ -63,30 +66,47 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(22, 378);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(130, 32);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(209, 378);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(130, 32);
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnEliminarFisico
+            // 
+            this.btnEliminarFisico.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnEliminarFisico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarFisico.Location = new System.Drawing.Point(387, 378);
+            this.btnEliminarFisico.Name = "btnEliminarFisico";
+            this.btnEliminarFisico.Size = new System.Drawing.Size(146, 32);
+            this.btnEliminarFisico.TabIndex = 4;
+            this.btnEliminarFisico.Text = "Eliminar Fisico";
+            this.btnEliminarFisico.UseVisualStyleBackColor = false;
+            this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
             // 
             // FrmDiscos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 429);
+            this.ClientSize = new System.Drawing.Size(1406, 427);
+            this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pbImagenDiscco);
@@ -108,6 +128,7 @@
         private System.Windows.Forms.PictureBox pbImagenDiscco;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminarFisico;
     }
 }
 
