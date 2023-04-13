@@ -15,7 +15,7 @@ namespace negocio
             AcessoDatos dato = new AcessoDatos();
             try
             {
-                dato.setearConsulta("Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, E.Descripcion Estilo, T.Descripcion Edicion, D.IdEstilo , D.IdTipoEdicion, D.Id From Discos D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id");
+                dato.setearConsulta("Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, E.Descripcion Estilo, T.Descripcion Edicion, D.IdEstilo , D.IdTipoEdicion, D.Id From Discos D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id And Activo = 1");
                 dato.ejecutarLectura();
 
                 while (dato.Lector.Read())
@@ -129,6 +129,26 @@ namespace negocio
             {
                 datos.cerrarConexion();
             }
+        }
+        public void eliminarLogico(int id)
+        {
+            AcessoDatos datos = new AcessoDatos();
+            try
+            {
+                datos.setearConsulta("update DISCOS set Activo = 0 where id = @id");
+                datos.seterarParametros("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
     }
 }

@@ -33,6 +33,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarFisico = new System.Windows.Forms.Button();
+            this.btnEliminarLogica = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenDiscco)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +82,7 @@
             // 
             this.btnModificar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(209, 378);
+            this.btnModificar.Location = new System.Drawing.Point(189, 378);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(130, 32);
             this.btnModificar.TabIndex = 3;
@@ -93,7 +94,7 @@
             // 
             this.btnEliminarFisico.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnEliminarFisico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarFisico.Location = new System.Drawing.Point(387, 378);
+            this.btnEliminarFisico.Location = new System.Drawing.Point(360, 378);
             this.btnEliminarFisico.Name = "btnEliminarFisico";
             this.btnEliminarFisico.Size = new System.Drawing.Size(146, 32);
             this.btnEliminarFisico.TabIndex = 4;
@@ -101,11 +102,24 @@
             this.btnEliminarFisico.UseVisualStyleBackColor = false;
             this.btnEliminarFisico.Click += new System.EventHandler(this.btnEliminarFisico_Click);
             // 
+            // btnEliminarLogica
+            // 
+            this.btnEliminarLogica.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnEliminarLogica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarLogica.Location = new System.Drawing.Point(541, 378);
+            this.btnEliminarLogica.Name = "btnEliminarLogica";
+            this.btnEliminarLogica.Size = new System.Drawing.Size(146, 32);
+            this.btnEliminarLogica.TabIndex = 5;
+            this.btnEliminarLogica.Text = "Eliminar Logica";
+            this.btnEliminarLogica.UseVisualStyleBackColor = false;
+            this.btnEliminarLogica.Click += new System.EventHandler(this.btnEliminarLogica_Click);
+            // 
             // FrmDiscos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1406, 427);
+            this.Controls.Add(this.btnEliminarLogica);
             this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -129,6 +143,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminarFisico;
+        private System.Windows.Forms.Button btnEliminarLogica;
     }
 }
 

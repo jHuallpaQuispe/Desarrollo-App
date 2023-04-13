@@ -84,17 +84,34 @@ namespace winform_Disco
 
         private void btnEliminarFisico_Click(object sender, EventArgs e)
         {
+
+            eliminar();
+        }
+
+        private void btnEliminarLogica_Click(object sender, EventArgs e)
+        {
+            eliminar(true);
+        }
+
+        private void eliminar (bool logica = false)
+        {
+            // para no repetir lo mismo en las dos eliminaciones
             DiscosNegocio negocio = new DiscosNegocio();
             Disco seleccionado;
 
             try
             {
-                DialogResult resultado  = MessageBox.Show("¿Seguro quieres eliminarlo?", "Eliminar",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult resultado = MessageBox.Show("¿Seguro quieres eliminarlo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if(resultado == DialogResult.Yes)
+                if (resultado == DialogResult.Yes)
                 {
                     seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
-                    negocio.eliminar(seleccionado.Id);
+
+                    if (logica)
+                        negocio.eliminarLogico(seleccionado.Id);
+                    else
+                        negocio.eliminar(seleccionado.Id);
+
                     cargar();
                 }
             }
