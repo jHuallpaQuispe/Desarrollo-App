@@ -131,13 +131,34 @@ namespace winform_Disco
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {
-            List<Disco> listraFiltrada;
+            //Por el momento esto no lo usaré
+
+            /*List<Disco> listraFiltrada;
             string filtro = txtFiltro.Text;
 
             if(filtro != "")
             {
                 // Filtrado por más que se encuentre un solo caractér
                 // tambien, según Edicion y Estilo.
+                listraFiltrada = lista.FindAll( x => x.Titulo.ToLower().Contains(filtro.ToLower()) || x.Edicion.Descripcion.ToLower().Contains(filtro.ToLower()) || x.Estilo.Descripcion.ToLower().Contains(filtro.ToLower()) );
+            }
+            else
+            {
+                listraFiltrada = lista;
+            }
+
+            dgvDiscos.DataSource = null; // Lo limpiamos
+            dgvDiscos.DataSource = listraFiltrada;
+            ocultarColumnas();*/
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            List<Disco> listraFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if(filtro.Length >= 2) // Filtras si hay más de 2 caracteres
+            {
                 listraFiltrada = lista.FindAll( x => x.Titulo.ToLower().Contains(filtro.ToLower()) || x.Edicion.Descripcion.ToLower().Contains(filtro.ToLower()) || x.Estilo.Descripcion.ToLower().Contains(filtro.ToLower()) );
             }
             else

@@ -131,14 +131,15 @@
             // 
             this.txtFiltro.Location = new System.Drawing.Point(63, 25);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(228, 22);
+            this.txtFiltro.Size = new System.Drawing.Size(287, 22);
             this.txtFiltro.TabIndex = 7;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnFiltro
             // 
             this.btnFiltro.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltro.Location = new System.Drawing.Point(311, 21);
+            this.btnFiltro.Location = new System.Drawing.Point(765, 12);
             this.btnFiltro.Name = "btnFiltro";
             this.btnFiltro.Size = new System.Drawing.Size(146, 28);
             this.btnFiltro.TabIndex = 8;
