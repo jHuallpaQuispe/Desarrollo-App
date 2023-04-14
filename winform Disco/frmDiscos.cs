@@ -32,8 +32,7 @@ namespace winform_Disco
             {
                 lista = disco.listar();
                 dgvDiscos.DataSource = lista;
-                dgvDiscos.Columns["UrlImagen"].Visible = false;
-                dgvDiscos.Columns["Id"].Visible = false;
+                ocultarColumnas();
                 cargarImagen(lista[0].UrlImagen);
             }
             catch (Exception ex)
@@ -42,12 +41,20 @@ namespace winform_Disco
                 MessageBox.Show(ex.ToString());
             }
         }
+        private void ocultarColumnas()
+        {
+            dgvDiscos.Columns["UrlImagen"].Visible = false;
+            dgvDiscos.Columns["Id"].Visible = false;
+        }
 
         private void dgvDiscos_SelectionChanged(object sender, EventArgs e)
         {
-            Disco seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
-
-            cargarImagen(seleccionado.UrlImagen);
+            // Me da un error acá porque al momento de filtrar la "", el index no apunta a nada, osea un null
+            if(dgvDiscos.CurrentRow != null)
+            {
+                Disco seleccionado = (Disco)dgvDiscos.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.UrlImagen);
+            }
         }
 
         public void cargarImagen(string Imagen)
@@ -120,6 +127,27 @@ namespace winform_Disco
 
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            List<Disco> listraFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if(filtro != "")
+            {
+                // Filtrado por más que se encuentre un solo caractér
+                // tambien, según Edicion y Estilo.
+                listraFiltrada = lista.FindAll( x => x.Titulo.ToLower().Contains(filtro.ToLower()) || x.Edicion.Descripcion.ToLower().Contains(filtro.ToLower()) || x.Estilo.Descripcion.ToLower().Contains(filtro.ToLower()) );
+            }
+            else
+            {
+                listraFiltrada = lista;
+            }
+
+            dgvDiscos.DataSource = null; // Lo limpiamos
+            dgvDiscos.DataSource = listraFiltrada;
+            ocultarColumnas();
         }
     }
 }

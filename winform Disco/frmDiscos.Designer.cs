@@ -34,6 +34,9 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminarFisico = new System.Windows.Forms.Button();
             this.btnEliminarLogica = new System.Windows.Forms.Button();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.btnFiltro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenDiscco)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +46,7 @@
             this.dgvDiscos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiscos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDiscos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.dgvDiscos.Location = new System.Drawing.Point(22, 21);
+            this.dgvDiscos.Location = new System.Drawing.Point(12, 55);
             this.dgvDiscos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDiscos.MultiSelect = false;
             this.dgvDiscos.Name = "dgvDiscos";
@@ -57,7 +60,7 @@
             // pbImagenDiscco
             // 
             this.pbImagenDiscco.BackColor = System.Drawing.SystemColors.Control;
-            this.pbImagenDiscco.Location = new System.Drawing.Point(969, 21);
+            this.pbImagenDiscco.Location = new System.Drawing.Point(959, 55);
             this.pbImagenDiscco.Margin = new System.Windows.Forms.Padding(4);
             this.pbImagenDiscco.Name = "pbImagenDiscco";
             this.pbImagenDiscco.Size = new System.Drawing.Size(418, 351);
@@ -69,7 +72,7 @@
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(22, 378);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 412);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(130, 32);
@@ -82,7 +85,7 @@
             // 
             this.btnModificar.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(189, 378);
+            this.btnModificar.Location = new System.Drawing.Point(179, 412);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(130, 32);
             this.btnModificar.TabIndex = 3;
@@ -94,7 +97,7 @@
             // 
             this.btnEliminarFisico.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnEliminarFisico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarFisico.Location = new System.Drawing.Point(360, 378);
+            this.btnEliminarFisico.Location = new System.Drawing.Point(350, 412);
             this.btnEliminarFisico.Name = "btnEliminarFisico";
             this.btnEliminarFisico.Size = new System.Drawing.Size(146, 32);
             this.btnEliminarFisico.TabIndex = 4;
@@ -106,7 +109,7 @@
             // 
             this.btnEliminarLogica.BackColor = System.Drawing.Color.LightSteelBlue;
             this.btnEliminarLogica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarLogica.Location = new System.Drawing.Point(541, 378);
+            this.btnEliminarLogica.Location = new System.Drawing.Point(531, 412);
             this.btnEliminarLogica.Name = "btnEliminarLogica";
             this.btnEliminarLogica.Size = new System.Drawing.Size(146, 32);
             this.btnEliminarLogica.TabIndex = 5;
@@ -114,11 +117,43 @@
             this.btnEliminarLogica.UseVisualStyleBackColor = false;
             this.btnEliminarLogica.Click += new System.EventHandler(this.btnEliminarLogica_Click);
             // 
+            // lblFiltro
+            // 
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(12, 26);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(45, 18);
+            this.lblFiltro.TabIndex = 6;
+            this.lblFiltro.Text = "Filtro:";
+            // 
+            // txtFiltro
+            // 
+            this.txtFiltro.Location = new System.Drawing.Point(63, 25);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(228, 22);
+            this.txtFiltro.TabIndex = 7;
+            // 
+            // btnFiltro
+            // 
+            this.btnFiltro.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btnFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltro.Location = new System.Drawing.Point(311, 21);
+            this.btnFiltro.Name = "btnFiltro";
+            this.btnFiltro.Size = new System.Drawing.Size(146, 28);
+            this.btnFiltro.TabIndex = 8;
+            this.btnFiltro.Text = "Buscar";
+            this.btnFiltro.UseVisualStyleBackColor = false;
+            this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
+            // 
             // FrmDiscos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 427);
+            this.ClientSize = new System.Drawing.Size(1406, 452);
+            this.Controls.Add(this.btnFiltro);
+            this.Controls.Add(this.txtFiltro);
+            this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.btnEliminarLogica);
             this.Controls.Add(this.btnEliminarFisico);
             this.Controls.Add(this.btnModificar);
@@ -133,6 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiscos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenDiscco)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,6 +180,9 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminarFisico;
         private System.Windows.Forms.Button btnEliminarLogica;
+        private System.Windows.Forms.Label lblFiltro;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Button btnFiltro;
     }
 }
 
