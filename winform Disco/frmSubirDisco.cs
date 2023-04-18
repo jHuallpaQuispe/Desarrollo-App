@@ -5,16 +5,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Configuration;
 namespace winform_Disco
 {
     public partial class frmSubirDisco : Form
     {
         private Disco disco = null;
+        private OpenFileDialog archivo = null;
         public frmSubirDisco()
         {
             InitializeComponent();
@@ -53,6 +55,10 @@ namespace winform_Disco
                     MessageBox.Show("Agregado exitosamente");
 
                 }
+                //Si despues de cargar la img local, me arrepiento y cargo uno de la web, el archivo de todas maneras ya no será null  y entra al if(eso no queremos)
+                //Por eso la ultima evaluacion
+                if (archivo != null && !(txtUrlImagen.Text.ToUpper().Contains("HTTP")) )
+                    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["imgs-folder"] + archivo.SafeFileName );
 
                 Close();
             }
@@ -117,6 +123,18 @@ namespace winform_Disco
                 pbxUrlImagen.Load("https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/681px-Placeholder_view_vector.svg.png");
             }
 
+        }
+
+        private void btnAgregarImg_Click(object sender, EventArgs e)
+        {
+            archivo = new OpenFileDialog();
+            archivo.Filter = "jpg|*.jpg|png|*.png";
+
+            if(archivo.ShowDialog() == DialogResult.OK)
+            {
+                txtUrlImagen.Text = archivo.FileName;
+                cargarImagen(archivo.FileName); 
+            }
         }
     }
 }

@@ -43,6 +43,7 @@
             this.lblUrlImagen = new System.Windows.Forms.Label();
             this.txtUrlImagen = new System.Windows.Forms.TextBox();
             this.pbxUrlImagen = new System.Windows.Forms.PictureBox();
+            this.btnAgregarImg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxUrlImagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,18 +180,31 @@
             // 
             // pbxUrlImagen
             // 
-            this.pbxUrlImagen.Location = new System.Drawing.Point(511, 29);
+            this.pbxUrlImagen.Location = new System.Drawing.Point(663, 29);
             this.pbxUrlImagen.Name = "pbxUrlImagen";
             this.pbxUrlImagen.Size = new System.Drawing.Size(351, 256);
             this.pbxUrlImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxUrlImagen.TabIndex = 15;
             this.pbxUrlImagen.TabStop = false;
             // 
+            // btnAgregarImg
+            // 
+            this.btnAgregarImg.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnAgregarImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarImg.Location = new System.Drawing.Point(462, 89);
+            this.btnAgregarImg.Name = "btnAgregarImg";
+            this.btnAgregarImg.Size = new System.Drawing.Size(45, 26);
+            this.btnAgregarImg.TabIndex = 16;
+            this.btnAgregarImg.Text = "+";
+            this.btnAgregarImg.UseVisualStyleBackColor = false;
+            this.btnAgregarImg.Click += new System.EventHandler(this.btnAgregarImg_Click);
+            // 
             // frmSubirDisco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 316);
+            this.ClientSize = new System.Drawing.Size(1026, 316);
+            this.Controls.Add(this.btnAgregarImg);
             this.Controls.Add(this.pbxUrlImagen);
             this.Controls.Add(this.txtUrlImagen);
             this.Controls.Add(this.lblUrlImagen);
@@ -234,5 +248,6 @@
         private System.Windows.Forms.Label lblUrlImagen;
         private System.Windows.Forms.TextBox txtUrlImagen;
         private System.Windows.Forms.PictureBox pbxUrlImagen;
+        private System.Windows.Forms.Button btnAgregarImg;
     }
 }
