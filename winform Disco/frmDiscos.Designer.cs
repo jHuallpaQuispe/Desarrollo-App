@@ -186,7 +186,7 @@
             this.lblCriterio.AutoSize = true;
             this.lblCriterio.Location = new System.Drawing.Point(269, 480);
             this.lblCriterio.Name = "lblCriterio";
-            this.lblCriterio.Size = new System.Drawing.Size(65, 20);
+            this.lblCriterio.Size = new System.Drawing.Size(52, 16);
             this.lblCriterio.TabIndex = 11;
             this.lblCriterio.Text = "Criterio:";
             // 

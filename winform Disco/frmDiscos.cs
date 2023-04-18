@@ -139,11 +139,12 @@ namespace winform_Disco
         {
             DiscosNegocio negocio = new DiscosNegocio();
 
-            string campo = cboCampo.SelectedItem.ToString();
-            string criterio = cboCriterio.SelectedItem.ToString();
-            string filtro = txtFiltroAvanzado.Text;
             try
             {
+                string campo = cboCampo.SelectedItem.ToString();
+                string criterio = cboCriterio.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+
                 dgvDiscos.DataSource = negocio.filtrar(campo, criterio, filtro);
 
             }
