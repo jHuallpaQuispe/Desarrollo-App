@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -18,6 +19,26 @@ namespace negocio
                 dato.setearConsulta("Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, E.Descripcion Estilo, T.Descripcion Edicion, D.IdEstilo , D.IdTipoEdicion, D.Id From Discos D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id And Activo = 1");
                 dato.ejecutarLectura();
 
+                lista = listarLista(dato);
+
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dato.cerrarConexion();
+            }
+
+       }
+        public List<Disco> listarLista(AcessoDatos dato)
+        {
+            List<Disco> lista = new List<Disco>();
+            try
+            {
                 while (dato.Lector.Read())
                 {
                     Disco aux = new Disco();
@@ -40,22 +61,17 @@ namespace negocio
                     aux.Edicion = new Edicion();
                     aux.Edicion.Id = (int)dato.Lector["IdTipoEdicion"];
                     aux.Edicion.Descripcion = (string)dato.Lector["Edicion"];
+
                     lista.Add(aux);
                 }
-
                 return lista;
-
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
-            finally
-            {
-                dato.cerrarConexion();
-            }
-
-       }
+        }
 
          public void agregar(Disco nuevo)
         {
@@ -63,7 +79,7 @@ namespace negocio
 
             try
             {
-                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento, CantidadCanciones, IdEstilo, IdTipoEdicion, UrlImagenTapa) values('" + nuevo.Titulo+"',@fechaLanzamiento,"+nuevo.CantidadCanciones+", @idEstilo, @idEdicion,@urlImagen)");
+                datos.setearConsulta("insert into DISCOS(Titulo, FechaLanzamiento, CantidadCanciones, IdEstilo, IdTipoEdicion, UrlImagenTapa, Activo) values('" + nuevo.Titulo+"',@fechaLanzamiento,"+nuevo.CantidadCanciones+", @idEstilo, @idEdicion,@urlImagen,1)");
                 datos.seterarParametros("@fechaLanzamiento", nuevo.FechaLanzamiento);
                 datos.seterarParametros("@idEstilo", nuevo.Estilo.Id);
                 datos.seterarParametros("@idEdicion", nuevo.Edicion.Id);
@@ -149,6 +165,95 @@ namespace negocio
                 datos.cerrarConexion();
             }
 
+        }
+
+        public List<Disco> filtrar(string campo, string criterio, string filtro)
+        {
+            List<Disco> lista = new List<Disco>();
+            AcessoDatos dato = new AcessoDatos();
+
+            string consulta = "Select D.Titulo, D.FechaLanzamiento, D.CantidadCanciones, D.UrlImagenTapa, E.Descripcion Estilo, T.Descripcion Edicion, D.IdEstilo , D.IdTipoEdicion, D.Id From Discos D, ESTILOS E, TIPOSEDICION T where D.IdEstilo = E.Id and D.IdTipoEdicion = T.Id And Activo = 1 And ";
+
+            try
+            {
+                if(campo == "Título")
+                {
+                    switch (criterio)
+                    {
+                        case "Contiene":
+                            consulta += "D.Titulo like '%" + filtro + "%'";
+                            break;
+                        case "Comienza con":
+                            consulta += "D.Titulo like '" + filtro + "%'";
+                            break;
+                        default:
+                            consulta += "D.Titulo like '%" + filtro + "'";
+                            break;
+                    }
+                }
+                if (campo == "Cantidad de Canciones")
+                {
+                    switch (criterio)
+                    {
+                        case "Mayor a":
+                            consulta += "D.CantidadCanciones > " + filtro ;
+                            break;
+                        case "Menor a":
+                            consulta += "D.CantidadCanciones < " + filtro;
+                            break;
+                        default:
+                            consulta += "D.CantidadCanciones = " + filtro;
+                            break;
+                    }
+                }
+                if (campo == "Estilo")
+                {
+                    switch (criterio)
+                    {
+                        case "Contiene":
+                            consulta += "E.Descripcion like '%" + filtro + "%'";
+                            break;
+                        case "Comienza con":
+                            consulta += "E.Descripcion like '" + filtro + "%'";
+                            break;
+                        default:
+                            consulta += "E.Descripcion like '%" + filtro + "'";
+                            break;
+                    }
+                }
+                if (campo == "Edición")
+                {
+                    switch (criterio)
+                    {
+                        case "Contiene":
+                            consulta += "T.Descripcion like '%" + filtro + "%'";
+                            break;
+                        case "Comienza con":
+                            consulta += "T.Descripcion like '" + filtro + "%'";
+                            break;
+                        default:
+                            consulta += "T.Descripcion like '%" + filtro + "'";
+                            break;
+                    }
+                }
+
+
+                dato.setearConsulta(consulta);
+                dato.ejecutarLectura();
+
+                lista = listarLista(dato);
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                dato.cerrarConexion();
+            }
         }
     }
 }

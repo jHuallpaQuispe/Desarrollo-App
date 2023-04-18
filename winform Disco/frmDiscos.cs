@@ -23,6 +23,12 @@ namespace winform_Disco
         {
             cargar();
 
+            cboCampo.Items.Add("Título");
+            cboCampo.Items.Add("Cantidad de Canciones");
+            cboCampo.Items.Add("Estilo");
+            cboCampo.Items.Add("Edición");
+
+
         }
 
         private void cargar()
@@ -131,6 +137,24 @@ namespace winform_Disco
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {
+            DiscosNegocio negocio = new DiscosNegocio();
+
+            string campo = cboCampo.SelectedItem.ToString();
+            string criterio = cboCriterio.SelectedItem.ToString();
+            string filtro = txtFiltroAvanzado.Text;
+            try
+            {
+                dgvDiscos.DataSource = negocio.filtrar(campo, criterio, filtro);
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
             //Por el momento esto no lo usaré
 
             /*List<Disco> listraFiltrada;
@@ -169,6 +193,27 @@ namespace winform_Disco
             dgvDiscos.DataSource = null; // Lo limpiamos
             dgvDiscos.DataSource = listraFiltrada;
             ocultarColumnas();
+        }
+
+        private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string seleccionado = cboCampo.SelectedItem.ToString();
+
+            if(seleccionado == "Cantidad de Canciones")
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Mayor a");
+                cboCriterio.Items.Add("Menor a");
+                cboCriterio.Items.Add("Igual a");
+            }
+            else
+            {
+                cboCriterio.Items.Clear();
+                cboCriterio.Items.Add("Contiene");
+                cboCriterio.Items.Add("Comienza con");
+                cboCriterio.Items.Add("Termina con");
+            }
+
         }
     }
 }
