@@ -79,6 +79,7 @@
             // 
             // txtbTitulo
             // 
+            this.txtbTitulo.BackColor = System.Drawing.SystemColors.Window;
             this.txtbTitulo.Location = new System.Drawing.Point(179, 29);
             this.txtbTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.txtbTitulo.Name = "txtbTitulo";

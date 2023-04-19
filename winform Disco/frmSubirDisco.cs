@@ -28,6 +28,37 @@ namespace winform_Disco
             Text = "Modificar Disco";
         }
 
+        private bool validarCampos()
+        {
+            if (string.IsNullOrEmpty(txtbTitulo.Text))
+            {
+                txtbTitulo.BackColor = Color.Red;
+                return true;
+            }
+
+            txtbTitulo.BackColor = SystemColors.Window;
+
+            if (string.IsNullOrEmpty(txtbCantidadCanciones.Text))
+            {
+                txtbCantidadCanciones.BackColor= Color.Red;
+                return true;
+            }
+
+            txtbCantidadCanciones.BackColor = SystemColors.Window;
+
+            if(cboEstilo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor seleccione un Estilo");
+                return true;
+            }
+
+            if(cboEdicion.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor seleccione una Edicion");
+                return true;
+            }
+            return false;
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             DiscosNegocio negocio = new DiscosNegocio();
@@ -35,6 +66,9 @@ namespace winform_Disco
             {
                 if(disco == null)
                     disco = new Disco();
+
+                if (validarCampos())
+                    return;
 
                 disco.Titulo = txtbTitulo.Text;
                 disco.FechaLanzamiento = dtpFechaLanzamiento.Value;
@@ -96,6 +130,9 @@ namespace winform_Disco
                     cboEdicion.SelectedValue = disco.Edicion.Id;
                     cargarImagen(disco.UrlImagen);
                 }
+
+                cboEstilo.SelectedIndex = -1;
+                cboEdicion.SelectedIndex= -1;
 
             }
             catch (Exception ex)

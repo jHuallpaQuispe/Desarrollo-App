@@ -235,6 +235,12 @@ namespace winform_Disco
             dgvDiscos.DataSource = null; // Lo limpiamos
             dgvDiscos.DataSource = listraFiltrada;
             ocultarColumnas();
+
+           if(listraFiltrada == null)
+            {
+
+            }
+
         }
 
         private void cboCampo_SelectedIndexChanged(object sender, EventArgs e)
