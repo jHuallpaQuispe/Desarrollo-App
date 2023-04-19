@@ -135,12 +135,53 @@ namespace winform_Disco
             }
         }
 
+        private bool validarFiltro()
+        {
+            
+            if(cboCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Seleccione un campo..");
+                return true;
+            }
+            if(cboCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Seleccione un criterio..");
+                return true;
+            }
+            if(cboCampo.SelectedItem.ToString() == "Cantidad de Canciones")
+            {
+                if (! (soloNumeros(txtFiltroAvanzado.Text)))
+                {
+                    MessageBox.Show("Ingrese solo números para Cantidad de Canciones en el filtro...");
+                    return true;
+
+                }
+                if (string.IsNullOrEmpty(txtFiltroAvanzado.Text))
+                {
+                    MessageBox.Show("Esta vacío el filtro...");
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter))) // si no es letra, retorna false
+                    return false;
+            }
+            return true;
+        }
         private void btnFiltro_Click(object sender, EventArgs e)
         {
             DiscosNegocio negocio = new DiscosNegocio();
 
             try
             {
+                if (validarFiltro())
+                    return;
+
                 string campo = cboCampo.SelectedItem.ToString();
                 string criterio = cboCriterio.SelectedItem.ToString();
                 string filtro = txtFiltroAvanzado.Text;
